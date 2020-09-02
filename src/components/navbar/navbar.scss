@@ -1,0 +1,40 @@
+header {
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-title {
+  padding: 1rem 1rem;
+  font-size: 3rem;
+}
+
+.main-navigation {
+  margin: 0px;
+  display: flex;
+  li {
+    list-style: none;
+    a {
+      color: #ffffff;
+      padding: 2rem 1rem;
+      text-transform: uppercase;
+      text-align: center;
+      display: block;
+      text-decoration: none;
+    }
+    a::after {
+      border-right: 1px solid #ffffff;
+      content: '';
+      padding: 0 1rem;
+    }
+  }
+  li:last-child {
+    a::after {
+      content: none;
+    }
+  }
+}

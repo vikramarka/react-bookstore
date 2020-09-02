@@ -1,0 +1,15 @@
+{
+  "store": {
+    "cart": {
+      "items": []
+    },
+    "address": {
+      "name": "",
+      "street1": "",
+      "street2": "",
+      "city": "",
+      "country": ""
+    },
+    "orders": [{ "date": "", "items": [] }]
+  }
+}

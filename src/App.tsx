@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from 'react';
+
+import './styles/App.scss';
+import { Switch, Route } from 'react-router-dom';
+
+import HomeContainer from './routes/home/homecontainer';
+import BookContainer from './routes/book/bookcontainer';
+import Footer from './components/footer/footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Switch>
+        <Route path="/book/:isbn" component={BookContainer}></Route>
+        <Route path="/" component={HomeContainer}></Route>
+      </Switch>
+      <Footer />
+    </Fragment>
   );
 }
 
