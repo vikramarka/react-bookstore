@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { Dispatch, bindActionCreators } from 'redux';
 import { actions as booksActions } from '../../store/books';
 import BookComponent from './bookcomponent';
-import { AppState } from '../../store/rootRedcer';
+import { AppState } from '../../store/rootReducer';
 
 const mapStateToProps = (state: AppState) => {
   return {

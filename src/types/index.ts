@@ -34,10 +34,6 @@ export type CartItemType = {
   quantity: number;
 };
 
-export type CartType = {
-  items: CartItemType[];
-};
-
 export type OrderType = {
   status: string;
   datePlaced: Date;

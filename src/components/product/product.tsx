@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 
 import './product.scss';
 import { Link } from 'react-router-dom';
+import { formatCurrency } from '../../utils';
 
 type ProductProps = {
   title: string;
@@ -9,9 +10,13 @@ type ProductProps = {
   price: number;
   currency: string;
   isbn: string;
+  onAddToCart: (isbn: string) => void;
 };
 
 class Product extends Component<ProductProps> {
+  handleAddToCartClick() {
+    this.props.onAddToCart(this.props.isbn);
+  }
   render() {
     return (
       <div className="product-list-item">
@@ -21,7 +26,12 @@ class Product extends Component<ProductProps> {
           </Link>
 
           <div className="product-buttons">
-            <button className="btn btn-primary product-add-to-cart-btn">
+            <button
+              className="btn btn-primary product-add-to-cart-btn"
+              onClick={() => {
+                this.handleAddToCartClick();
+              }}
+            >
               Add to Cart
             </button>
             <button className="btn btn-secondary product-buy-btn">
@@ -31,10 +41,7 @@ class Product extends Component<ProductProps> {
         </div>
         <div className="product-info">
           <h2 className="product-title">{this.props.title}</h2>
-          <h3>
-            {this.props.currency}
-            {this.props.price}
-          </h3>
+          <h3>{formatCurrency(this.props.price)}</h3>
         </div>
       </div>
     );

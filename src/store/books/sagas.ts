@@ -5,7 +5,7 @@ import { fetchBooks, fetchBookDetails } from '../../services';
 import { BookType, BookDetailsType } from '../../types';
 import { convertCurrencyToNumber } from '../../utils';
 import { BooksState } from './reducers';
-import { AppState } from '../rootRedcer';
+import { AppState } from '../rootReducer';
 
 export const getBookDetailsFromState: any = (state: AppState) => {
   return state.booksState.bookDetails;
@@ -27,9 +27,7 @@ export function* getBooks() {
 }
 
 export function* getBookDetails({ payload }: any) {
-  console.log(payload);
   const bookDetailsFromState = yield select(getBookDetailsFromState);
-  console.log(bookDetailsFromState);
   let bookDetails: BookDetailsType = bookDetailsFromState['isbn_' + payload];
   if (bookDetails) {
     yield put(actions.getBookDetailsSuccess(bookDetails));

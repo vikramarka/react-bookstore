@@ -1,0 +1,46 @@
+.shopping-bag-item {
+  img {
+    width: 100%;
+  }
+}
+
+.shopping-bag-item-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.checkout-button-block {
+  margin-top: 10px;
+  .checkout-button {
+    margin-right: 20px;
+  }
+}
+
+.price-block {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  &.total-price {
+    font-size: 1.5em;
+  }
+}
+
+.price-block-amount {
+  font-weight: bold;
+}
+
+.underline {
+  border-bottom: 1px solid black;
+}
+
+.shopping-bag-section {
+  margin-bottom: 50px;
+  .cart-container {
+    max-height: 400px;
+    overflow: auto;
+    background-color: lightblue;
+    padding: 20px;
+  }
+}

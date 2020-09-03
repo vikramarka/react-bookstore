@@ -1,30 +1,32 @@
 import { connect } from 'react-redux';
 import { Dispatch, bindActionCreators } from 'redux';
-import { actions as booksActions } from '../../store/books';
 import { actions as userActions } from '../../store/user';
-import HomeComponent from './homecomponent';
+import CartComponent from './cartcomponent';
 import { AppState } from '../../store/rootReducer';
 
 const mapStateToProps = (state: AppState) => {
   return {
-    books: state.booksState.books,
-    booksLoading: state.booksState.booksLoading,
+    cart: state.userState.cart,
+    address: state.userState.address,
+    cartPrice: state.userState.cartPrice,
+    tax: state.userState.tax,
+    shipping: state.userState.shippingCharge,
   };
 };
 
 const mapDisptachToProps = (dispatch: Dispatch) => {
   return bindActionCreators(
     {
-      getBooks: booksActions.getBooks,
-      addToCart: userActions.addToCart,
+      removeFromCart: userActions.removeFromCart,
+      updateAddress: userActions.updateAddress,
     },
     dispatch
   );
 };
 
-const HomeContainer = connect(
+const CartContainer = connect(
   mapStateToProps,
   mapDisptachToProps
-)(HomeComponent);
+)(CartComponent);
 
-export default HomeContainer;
+export default CartContainer;

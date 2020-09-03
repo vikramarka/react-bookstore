@@ -7,6 +7,7 @@ import './homecomponent.scss';
 
 export type HomeActionProps = {
   getBooks: () => void;
+  addToCart: (isbn: string) => void;
 };
 
 export type HomeProps = {
@@ -31,7 +32,7 @@ class HomeComponent extends Component<HomeProps & HomeActionProps, HomeState> {
             {this.props.books.map((book: BookType) => {
               return (
                 <div className="col-xs-1 col-md-3">
-                  <Product {...book} />
+                  <Product {...book} onAddToCart={this.props.addToCart} />
                 </div>
               );
             })}
