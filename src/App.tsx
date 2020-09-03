@@ -7,6 +7,7 @@ import HomeContainer from './routes/home/homecontainer';
 import BookContainer from './routes/book/bookcontainer';
 import Footer from './components/footer/footer';
 import CartContainer from './routes/cart/cartcontainer';
+import OrderContainer from './routes/orders/ordercontainer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Switch>
         <Route path="/book/:isbn" component={BookContainer}></Route>
         <Route path="/cart" component={CartContainer}></Route>
+        <Route path="/orders" component={OrderContainer}></Route>
         <Route path="/" component={HomeContainer}></Route>
       </Switch>
       <Footer />

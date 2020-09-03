@@ -35,7 +35,7 @@ export default function Address({
     }
   }
   function isValid(key: keyof types.AddressType): boolean {
-    return localAddress[key]?.trim() != '' && isValidated;
+    return localAddress[key]?.trim() != '';
   }
   return (
     <div className="address-container">

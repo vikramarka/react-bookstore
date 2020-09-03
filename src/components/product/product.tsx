@@ -11,11 +11,15 @@ type ProductProps = {
   currency: string;
   isbn: string;
   onAddToCart: (isbn: string) => void;
+  onBuyNow: (isbn: string) => void;
 };
 
 class Product extends Component<ProductProps> {
   handleAddToCartClick() {
     this.props.onAddToCart(this.props.isbn);
+  }
+  handleBuyNowClick() {
+    this.props.onBuyNow(this.props.isbn);
   }
   render() {
     return (
@@ -34,7 +38,12 @@ class Product extends Component<ProductProps> {
             >
               Add to Cart
             </button>
-            <button className="btn btn-secondary product-buy-btn">
+            <button
+              className="btn btn-secondary product-buy-btn"
+              onClick={() => {
+                this.handleBuyNowClick();
+              }}
+            >
               Buy Now
             </button>
           </div>

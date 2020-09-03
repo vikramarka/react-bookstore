@@ -1,0 +1,28 @@
+.order-section {
+  border: 1px solid lightblue;
+  margin-bottom: 20px;
+}
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: lightblue;
+  font-weight: bold;
+}
+
+.show-more {
+  background: lightblue;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.order-item-info {
+  img {
+    width: 100%;
+  }
+}
+
+.no-orders-text {
+  text-align: center;
+}

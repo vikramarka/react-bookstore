@@ -9,6 +9,7 @@ const mapStateToProps = (state: AppState) => {
   return {
     books: state.booksState.books,
     booksLoading: state.booksState.booksLoading,
+    router: state.router,
   };
 };
 

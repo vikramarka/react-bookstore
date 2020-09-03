@@ -1,12 +1,13 @@
 import React, { Component, Fragment, ReactNode } from 'react';
 import { BookDetailsType } from '../../types';
-import Product from '../../components/product/product';
 import NavBar from '../../components/navbar/navbar';
+import { history } from '../../history';
 
 import './bookcomponent.scss';
 
 export type BookActionProps = {
   getBookDetails: (isbn: string) => void;
+  addToCart: (isbn: string) => void;
 };
 
 export type BookProps = {
@@ -59,8 +60,23 @@ class BookComponent extends Component<BookProps & BookActionProps, HomeState> {
                 <h3>ISBN: {bookData.isbn}</h3>
               </div>
               <div className="book-button-group">
-                <button className="btn btn-primary">Add to Cart</button>
-                <button className="btn btn-secondary">Buy Now</button>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => {
+                    this.props.addToCart(bookData.isbn);
+                  }}
+                >
+                  Add to Cart
+                </button>
+                <button
+                  className="btn btn-secondary"
+                  onClick={() => {
+                    this.props.addToCart(bookData.isbn);
+                    history.push('/cart');
+                  }}
+                >
+                  Buy Now
+                </button>
               </div>
               <div className="book-description">
                 <p>{bookData.description}</p>

@@ -30,7 +30,7 @@ export default function ShoppingBag({
     }
   }
   function renderPaymentInfo() {
-    if (cart.length > 0 || true) {
+    if (cart.length > 0) {
       return (
         <div>
           <h2>Payment Info</h2>
@@ -58,6 +58,17 @@ export default function ShoppingBag({
               </div>
             </div>
           </div>
+          <div className="checkout-button-block">
+            <button
+              className="btn btn-secondary checkout-button"
+              onClick={onCheckout}
+            >
+              Checkout
+            </button>
+            <Link to="/" className="btn btn-primary checkout-button">
+              Cancel
+            </Link>
+          </div>
         </div>
       );
     }
@@ -67,12 +78,6 @@ export default function ShoppingBag({
       <h1 className="col-xs-12">Shopping Bag</h1>
       <div className="cart-container">{renderCart()}</div>
       {renderPaymentInfo()}
-      <div className="checkout-button-block">
-        <button className="btn btn-secondary checkout-button">Checkout</button>
-        <Link to="/" className="btn btn-primary checkout-button">
-          Cancel
-        </Link>
-      </div>
     </div>
   );
 }

@@ -12,12 +12,12 @@ export interface UserState {
 
 const defaultState: UserState = {
   address: {
-    firstName: '',
-    lastName: '',
-    streetAddress1: '',
-    streetAddress2: '',
-    city: '',
-    country: '',
+    firstName: 'test',
+    lastName: 'test',
+    streetAddress1: 'test',
+    streetAddress2: 'test',
+    city: 'test',
+    country: 'test',
   },
   orders: [],
   cart: [],
@@ -102,6 +102,12 @@ export default function (
       return {
         ...state,
         address: action.payload,
+      };
+    case types.ADD_ORDER_SUCCESS:
+      return {
+        ...state,
+        orders: [...state.orders, action.payload],
+        cart: [],
       };
     default:
       return state;

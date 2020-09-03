@@ -19,6 +19,7 @@ const mapDisptachToProps = (dispatch: Dispatch) => {
     {
       removeFromCart: userActions.removeFromCart,
       updateAddress: userActions.updateAddress,
+      addOrder: userActions.addOrder,
     },
     dispatch
   );

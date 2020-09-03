@@ -36,7 +36,7 @@ export type CartItemType = {
 
 export type OrderType = {
   status: string;
-  datePlaced: Date;
+  datePlaced: string;
   items: CartItemType[];
 };
 

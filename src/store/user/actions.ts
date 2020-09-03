@@ -1,5 +1,5 @@
 import * as types from './types';
-import { CartItemType, AddressType } from '../../types';
+import { CartItemType, AddressType, OrderType } from '../../types';
 
 export const addToCart = function (isbn: string) {
   return {
@@ -40,5 +40,19 @@ export const updateAddressSuccess = function (address: AddressType) {
   return {
     type: types.UPDATE_ADDRESS_SUCCESS,
     payload: address,
+  };
+};
+
+export const addOrder = function (order: OrderType) {
+  return {
+    type: types.ADD_ORDER_START,
+    payload: order,
+  };
+};
+
+export const addOrderSuccess = function (order: OrderType) {
+  return {
+    type: types.ADD_ORDER_SUCCESS,
+    payload: order,
   };
 };

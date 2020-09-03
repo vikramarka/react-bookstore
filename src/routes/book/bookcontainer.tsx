@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { Dispatch, bindActionCreators } from 'redux';
 import { actions as booksActions } from '../../store/books';
+import { actions as userActions } from '../../store/user';
 import BookComponent from './bookcomponent';
 import { AppState } from '../../store/rootReducer';
 
@@ -15,6 +16,7 @@ const mapDisptachToProps = (dispatch: Dispatch) => {
   return bindActionCreators(
     {
       getBookDetails: booksActions.getBookDetails,
+      addToCart: userActions.addToCart,
     },
     dispatch
   );

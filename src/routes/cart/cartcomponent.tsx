@@ -1,12 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import NavBar from '../../components/navbar/navbar';
-import { CartItemType, AddressType } from '../../types';
+import { CartItemType, AddressType, OrderType } from '../../types';
 import Address from '../../components/address/address';
 import ShoppingBag from '../../components/shoppingbag/shoppingbag';
+import moment from 'moment';
+import { OrderStatus } from '../../enums';
 
 export type CartActionProps = {
   removeFromCart: (isbn: string) => void;
   updateAddress: (address: AddressType) => void;
+  addOrder: (order: OrderType) => void;
 };
 
 export type CartProps = {
@@ -39,10 +42,17 @@ class CartComponent extends Component<CartActionProps & CartProps, CartState> {
       isAddressValid: isAddressValid,
     });
     if (isAddressValid) {
-      //perform checkout
+      var order: OrderType = {
+        items: this.props.cart,
+        datePlaced: moment().format('MMMM Do YYYY, h:mm:ss a') as string,
+        status: 'placed',
+      };
+      this.props.addOrder(order);
     }
   }
-  handleAddressUpdate(address: AddressType) {}
+  handleAddressUpdate(address: AddressType) {
+    this.props.updateAddress(address);
+  }
   render() {
     if (!this.state) {
       return <>Loading</>;
