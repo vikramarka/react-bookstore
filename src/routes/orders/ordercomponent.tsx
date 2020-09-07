@@ -14,8 +14,8 @@ class OrderComponent extends Component<OrderProps> {
     if (this.props.orders.length > 0) {
       return (
         <div className="row">
-          {this.props.orders.map((order: OrderType) => {
-            return <OrderItem order={order} />;
+          {this.props.orders.map((order: OrderType, index:number) => {
+            return <OrderItem order={order} key={index} />;
           })}
         </div>
       );

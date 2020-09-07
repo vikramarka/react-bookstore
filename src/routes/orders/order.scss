@@ -1,17 +1,17 @@
 .order-section {
-  border: 1px solid lightblue;
+  border: 1px solid var(--color-light-blue);
   margin-bottom: 20px;
 }
 .order-header {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  background: lightblue;
+  background: var(--color-light-blue);
   font-weight: bold;
 }
 
 .show-more {
-  background: lightblue;
+  background: var(--color-light-blue);
   padding: 10px;
   text-align: center;
   cursor: pointer;

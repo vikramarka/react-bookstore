@@ -16,10 +16,10 @@ export default function OrderItem({ order }: { order: OrderType }) {
   function renderSingleOrderItem(cartItem: CartItemType) {
     return (
       <div className="order-item-info row">
-        <div className="col-xs-2">
+        <div className="col-xs-6 col-sm-2">
           <img src={cartItem.book.image} alt={cartItem.book.title} />
         </div>
-        <div className="col-xs-10">
+        <div className="col-xs-6 col-sm-10">
           <h2>{cartItem.book.title}</h2>
           <h3>{formatCurrency(cartItem.book.price)}</h3>
         </div>

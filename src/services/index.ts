@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const fetchBooks = async function () {
-  const response = await axios.get('/new');
+export const fetchBooks = async function (page:number) {
+  const response = await axios.get(`/search/react/${page}`);
   return response;
 };
 

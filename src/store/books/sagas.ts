@@ -12,8 +12,10 @@ export const getBookDetailsFromState: any = (state: AppState) => {
 };
 
 export function* getBooks() {
-  const response: any = yield call(fetchBooks);
-  const books: BookType[] = response.data.books.map((book: any) => {
+  const response1: any = yield call(fetchBooks,1);
+  const response2: any = yield call(fetchBooks,2);
+  const finalResponse:any = response1.data.books.concat(response2.data.books);
+  const books: BookType[] = finalResponse.map((book: any) => {
     const { amount, currency } = convertCurrencyToNumber(book.price);
     return {
       title: book.title,
@@ -23,6 +25,7 @@ export function* getBooks() {
       currency: currency,
     };
   });
+  
   yield put(actions.getBooksSuccess(books));
 }
 

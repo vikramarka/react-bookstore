@@ -24,8 +24,8 @@ export default function ShoppingBag({
     if (cart.length == 0) {
       return <div className="col-xs-12"> No items in your Cart</div>;
     } else {
-      return cart.map((cartItem: CartItemType) => {
-        return <ShoppingBagItem cartItem={cartItem} onDelete={onDelete} />;
+      return cart.map((cartItem: CartItemType,index:number) => {
+        return <ShoppingBagItem key={index} cartItem={cartItem} onDelete={onDelete} />;
       });
     }
   }

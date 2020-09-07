@@ -31,10 +31,10 @@ class HomeComponent extends Component<HomeProps & HomeActionProps, HomeState> {
       <Fragment>
         <NavBar title="Book Store"></NavBar>
         <div className="container books-list-container">
-          <div className="row">
+          <div className="row-10">
             {this.props.books.map((book: BookType) => {
               return (
-                <div className="col-xs-1 col-md-3">
+                <div className="col-xs-10 col-sm-5 col-md-2" key={book.isbn}>
                   <Product
                     {...book}
                     onAddToCart={this.props.addToCart}
