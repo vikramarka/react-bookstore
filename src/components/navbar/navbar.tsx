@@ -10,29 +10,63 @@ type NavBarProps = {
   cart: CartItemType[];
 };
 
-class NavBar extends Component<NavBarProps> {
+type NavBarState = {
+  hamburgerMenuOpened: boolean
+}
+
+class NavBar extends Component<NavBarProps, NavBarState> {
+  state = {
+    hamburgerMenuOpened:false
+  }
+  handleHamburgerClick(){
+    this.setState(({hamburgerMenuOpened})=>({
+      hamburgerMenuOpened:!hamburgerMenuOpened
+    }));
+  }
   render() {
     let cartItems = 0;
     for (var i = 0; i < this.props.cart.length; i++) {
       cartItems += this.props.cart[i].quantity;
     }
     return (
-      <header>
-        <div className="nav-title">{this.props.title}</div>
-        <nav>
-          <ul className="main-navigation">
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/orders">My Orders</Link>
-            </li>
-            <li>
-              <Link to="/cart">cart ({cartItems}) </Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
+      <>
+        <header>
+          <div className="nav-title">{this.props.title}</div>
+          <nav>
+            <ul className="main-navigation">
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/orders">My Orders</Link>
+              </li>
+              <li>
+                <Link to="/cart">cart ({cartItems}) </Link>
+              </li>
+            </ul>
+          </nav>
+          <div onClick={()=>this.handleHamburgerClick()} className={`hamburger-icon ${this.state.hamburgerMenuOpened?"open":""}`}>
+            <span>&nbsp;</span>
+            <span>&nbsp;</span>
+            <span>&nbsp;</span>
+          </div>
+        </header>
+        <div className={`collapse-menu ${this.state.hamburgerMenuOpened?"open":""}`}>
+          <nav>
+              <ul className="mobile-navigation">
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/orders">My Orders</Link>
+                </li>
+                <li>
+                  <Link to="/cart">cart ({cartItems}) </Link>
+                </li>
+              </ul>
+            </nav>
+        </div>
+      </>
     );
   }
 }
