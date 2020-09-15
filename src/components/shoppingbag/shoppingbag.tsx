@@ -5,6 +5,15 @@ import './shoppingbag.scss';
 import { formatCurrency } from '../../utils';
 import { Link } from 'react-router-dom';
 
+type Props = {
+  cart: CartItemType[];
+  onDelete: (isbn:string)=>void;
+  onCheckout: ()=>void;
+  cartPrice: number;
+  tax: number;
+  shipping: number;
+}
+
 export default function ShoppingBag({
   cart,
   cartPrice,
@@ -12,17 +21,10 @@ export default function ShoppingBag({
   shipping,
   onDelete,
   onCheckout,
-}: {
-  cart: CartItemType[];
-  onDelete: any;
-  onCheckout: any;
-  cartPrice: number;
-  tax: number;
-  shipping: number;
-}) {
+}: Props) {
   function renderCart() {
     if (cart.length == 0) {
-      return <div className="col-xs-12"> No items in your Cart</div>;
+      return <div className="col-xs-12" data-testid="no-items-message"> No items in your Cart</div>;
     } else {
       return cart.map((cartItem: CartItemType,index:number) => {
         return <ShoppingBagItem key={index} cartItem={cartItem} onDelete={onDelete} />;
@@ -37,23 +39,23 @@ export default function ShoppingBag({
           <div className="price-block-container">
             <div className="price-block">
               <div className="price-block-title">Items Price:</div>
-              <div className="price-block-amount">
+              <div className="price-block-amount" data-testid="cart-price">
                 {formatCurrency(cartPrice)}
               </div>
             </div>
             <div className="price-block">
               <div className="price-block-title">Tax:</div>
-              <div className="price-block-amount">{formatCurrency(tax)}</div>
+              <div className="price-block-amount" data-testid="cart-tax">{formatCurrency(tax)}</div>
             </div>
             <div className="price-block underline">
               <div className="price-block-title">Shipping Charge:</div>
-              <div className="price-block-amount">
+              <div className="price-block-amount" data-testid="cart-shipping">
                 {formatCurrency(shipping)}
               </div>
             </div>
             <div className="price-block total-price">
               <div className="price-block-title">Total:</div>
-              <div className="price-block-amount final">
+              <div className="price-block-amount final" data-testid="cart-total">
                 {formatCurrency(shipping + tax + cartPrice)}
               </div>
             </div>

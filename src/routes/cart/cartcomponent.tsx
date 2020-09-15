@@ -3,8 +3,8 @@ import NavBar from '../../components/navbar/navbar';
 import { CartItemType, AddressType, OrderType } from '../../types';
 import Address from '../../components/address/address';
 import ShoppingBag from '../../components/shoppingbag/shoppingbag';
-import moment from 'moment';
-import { OrderStatus } from '../../enums';
+import { OrderStatus } from '../../constants';
+import { getDatePlaced } from '../../utils';
 
 export type CartActionProps = {
   removeFromCart: (isbn: string) => void;
@@ -44,8 +44,8 @@ class CartComponent extends Component<CartActionProps & CartProps, CartState> {
     if (isAddressValid) {
       var order: OrderType = {
         items: this.props.cart,
-        datePlaced: moment().format('MMMM Do YYYY, h:mm:ss a') as string,
-        status: 'placed',
+        datePlaced: getDatePlaced() as string,
+        status: OrderStatus.Placed,
       };
       this.props.addOrder(order);
     }

@@ -44,10 +44,11 @@ export default function Address({
           <h1>Shipping Address</h1>
         </div>
         <div className="col-xs-12 col-md-6 input-group">
-          <label className={!isValid('firstName') ? 'error' : ''}>
+          <label className={!isValid('firstName') ? 'error' : ''} htmlFor="first-name">
             First Name
           </label>
           <input
+            id="first-name"
             type="text"
             value={localAddress.firstName}
             onChange={(e) => {
@@ -57,10 +58,11 @@ export default function Address({
           ></input>
         </div>
         <div className="col-xs-12 col-md-6 input-group">
-          <label className={!isValid('lastName') ? 'error' : ''}>
+          <label className={!isValid('lastName') ? 'error' : ''} htmlFor="last-name">
             Last Name
           </label>
           <input
+            id="last-name"
             type="text"
             value={localAddress.lastName}
             onChange={(e) => {
@@ -70,10 +72,11 @@ export default function Address({
           ></input>
         </div>
         <div className="col-xs-12 input-group">
-          <label className={!isValid('streetAddress1') ? 'error' : ''}>
+          <label className={!isValid('streetAddress1') ? 'error' : ''} htmlFor="street-address1">
             Street Address1
           </label>
           <input
+            id="street-address1"
             type="text"
             value={localAddress.streetAddress1}
             onChange={(e) => {
@@ -83,10 +86,11 @@ export default function Address({
           ></input>
         </div>
         <div className="col-xs-12 input-group">
-          <label className={!isValid('streetAddress2') ? 'error' : ''}>
+          <label className={!isValid('streetAddress2') ? 'error' : ''} htmlFor="street-address2">
             Street Address2
           </label>
           <input
+            id="street-address2"
             type="text"
             value={localAddress.streetAddress2}
             onChange={(e) => {
@@ -96,8 +100,9 @@ export default function Address({
           ></input>
         </div>
         <div className="col-xs-6 input-group">
-          <label className={!isValid('city') ? 'error' : ''}>City</label>
+          <label className={!isValid('city') ? 'error' : ''} htmlFor="city">City</label>
           <input
+            id="city"
             type="text"
             value={localAddress.city}
             className={!isValid('city') ? 'error' : ''}
@@ -107,8 +112,9 @@ export default function Address({
           ></input>
         </div>
         <div className="col-xs-6 input-group">
-          <label className={!isValid('country') ? 'error' : ''}>Country</label>
+          <label className={!isValid('country') ? 'error' : ''} htmlFor="country">Country</label>
           <input
+            id="country"
             type="text"
             className={!isValid('country') ? 'error' : ''}
             value={localAddress.country}

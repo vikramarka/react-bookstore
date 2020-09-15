@@ -1,5 +1,6 @@
 import * as types from './types';
 import { AddressType, OrderType, CartItemType } from '../../types';
+import { calculateTotalPrice, getShippingCharge } from '../../utils';
 
 export interface UserState {
   address: AddressType;
@@ -23,19 +24,8 @@ const defaultState: UserState = {
   cart: [],
   cartPrice: 0,
   tax: 0,
-  shippingCharge: 5,
+  shippingCharge: getShippingCharge(),
 };
-
-function calculateTotalPrice(cart: CartItemType[]) {
-  let price = 0;
-  let tax = 0;
-  for (var i = 0; i < cart.length; i++) {
-    price += cart[i].book.price * cart[i].quantity;
-  }
-  //15 percent tax
-  tax = price * 0.15;
-  return { price, tax };
-}
 
 export default function (
   state: UserState = defaultState,
